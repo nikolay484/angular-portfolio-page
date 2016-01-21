@@ -1,0 +1,45 @@
+<div >
+  <pre>{{ portfolio.tags }}</pre>
+    <div class="portfolio_tags_bar">
+        <ul>
+            <li ng-repeat="tag in portfolio.tags">{{ tag.name }}</li>
+        </ul>
+    </div>
+  {{ portfolio.getPostTags }}
+    <div class="container portfolio">
+        <div class="row_masonry grid col-md-12">
+          
+            <div class="grid-item col-md-3 col-sm-6" ng-repeat="post in portfolio.posts " ">
+                <div   ng-repeat="media in portfolio.media | filter: post.featured_image" ng-if="post.featured_image == media.id"><img ng-src="{{ media.source_url}}"/></div>
+                <div class="desc">
+                    <h2>{{ post.title.rendered }}</h2>
+                    <div ng-bind-html="post.excerpt.rendered" class="content"></div>
+                </div>
+                <div class="overlay-item col-md-12">
+                    <h2>{{ post.title.rendered }}</h2>
+                    <div ng-bind-html="post.excerpt.rendered" class="content"></div>
+
+                    <button ng-click="portfolio.open(post.id)" class="btn btn-primary"><i class="fa fa-expand"></i>Read More</button>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/ng-template" id="portfolioPopup.html">
+            <div class="portfolio_popup">
+                <div class="modal-header">
+                    <h3 class="modal-title">{{data.post.title.rendered}}</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 popup_img"><img ng-src="{{ media.source_url}}"/></div>
+                    <div class="col-md-12 popup_text">
+                        <div ng-bind-html="post.content.rendered" class="content"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="button" ng-click="cancel()">Dismiss</button>
+                </div>
+            </div>
+        </script>
+    </div>
+
+</div>

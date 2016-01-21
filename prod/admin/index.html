@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="adminApp" class="no-js"> <!--<![endif]-->
+<head ng-controller="AdminCtrl">
+  
+    <title i18n-content="title">Admin</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" ng-bind="author" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/style.min.css">
+    
+</head>
+<body>
+    <div id="main-navigation">
+        {{ admin }}
+         {{ admindir }}
+      <ul class="menu" style="display:none">
+
+          <li ><a href="#/">Home</a></li>
+          <li ><a href="#/about">About me</a></li>
+      </ul>
+    </div>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="main-container" ng-view></div>
+  <div class="branding">
+        Nikolay Waysman
+  </div>
+
+  <script src="../libs/jquery/jquery.js"></script>
+  <script src="../libs/angular/angular.concat.js"></script>
+  <script src="../build.js"></script>
+
+</body>
+</html>
+ 

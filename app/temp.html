@@ -1,0 +1,5 @@
+<li ng-repeat="gallery in vm.gallery.data"  >
+    <!-- ng-if="media.id == gallery.featured_image" -->
+    <div>{{ gallery.title.rendered }}</div>
+    <img  ng-repeat="media in vm.media.data" ng-src="{{ media.guid.rendered}}"/>
+    <div ng-bind-html="gallery.content.rendered"></div>
