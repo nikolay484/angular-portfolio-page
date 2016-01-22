@@ -21,7 +21,7 @@ angular.module('myApp.home', [
             ApiService.getgallery().then(function(callback) {
                 $sce.trustAsHtml();
                 scope.gallery = callback;
-                $log.warn(scope.gallery);
+                $log.debug(scope.gallery);
                  scope.numberOfImages = scope.gallery.data.length;
             });
             
@@ -140,11 +140,11 @@ angular.module('myApp.home', [
         };
     });
 function HomeCtrl($scope, $rootScope, $cookies, $log, ApiService, $sce) {
-    $log.warn('homeCTRL start');
+    $log.debug('homeCTRL start');
      
     
     $rootScope.curPath = 'main';
-    $log.warn('homeCTRL stop');
+    $log.debug('homeCTRL stop');
 }
 
 

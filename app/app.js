@@ -9,20 +9,18 @@ angular.module('myApp', [
   'myApp.portfolio',
   'ngCookies',
   'ui.bootstrap',
-  'ngAnimate',
-  'adminApp',
-       'adminApp.admin'
+  'ngAnimate'
 ])
 //.config(Config)
 .config(function($routeProvider, $locationProvider, $logProvider) {
    $routeProvider
        .otherwise({redirectTo : '/'})
        .when('/', {
-            templateUrl: 'main/main.html',
+            templateUrl: 'homepage/main/main.html',
             controller: 'HomeCtrl'
        })
        .when('/portfolio', {
-            templateUrl: 'portfolio/portfolio.html',
+            templateUrl: 'homepage/portfolio/portfolio.html',
             controller: 'PortfolioCtrl',
             controllerAs: 'portfolio',
             resolve : {
@@ -31,24 +29,20 @@ angular.module('myApp', [
                 },
                 media : function(ApiService) {
                     return ApiService.getmedia();
-                },
-                tags : function(ApiService) {
-                    return ApiService.gettags();
                 }
-        
             }
         })
        .when('/about', {
-            templateUrl: 'about/about.html',
+            templateUrl: 'homepage/about/about.html',
             controller: 'AboutCtrl'
         })
-        $locationProvider.html5Mode(false);  // need to enable in future
+        $locationProvider.html5Mode(true);  // need to enable in future
         $logProvider.debugEnabled(true);
 })
 .value('value',
         {
             site_title : 'Bestvision.co.il - Nothing is impossible',
-            site_author : 'Nikolay waysman',
+            site_author : 'Nikolay waysman'
         })
 .controller('AppCtrl', AppCtrl)
 .factory('ApiService', getApiFactory);
@@ -59,14 +53,14 @@ function AppCtrl($scope, value, $cookies) {
 }
 
 function getApiFactory($http) {
-    
-     var ApiFactory = {};
 
-        ApiFactory.getposts = function() {
-            return $http.get('http://bestvision.co.il/poligon/wp-json/wp/v2/posts');
-        },
+    var ApiFactory = {};
+
+    ApiFactory.getposts = function() {
+        return $http.get('http://bestvision.co.il/poligon/wp-json/wp/v2/posts');
+    },
         ApiFactory.getmedia = function() {
-                return $http.get('http://bestvision.co.il/poligon/wp-json/wp/v2/media');
+            return $http.get('http://bestvision.co.il/poligon/wp-json/wp/v2/media');
         },
         ApiFactory.gettags = function() {
             return $http.get('http://bestvision.co.il/poligon/wp-json/wp/v2/tags');
@@ -95,7 +89,7 @@ function getApiFactory($http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             })
         },
-         ApiFactory.getCategory = function(cat_name) {
+        ApiFactory.getCategory = function(cat_name) {
             return $http({
                 method: 'GET',
                 url: 'http://bestvision.co.il/poligon/wp-json/wp/v2/posts/?filter[slug]='+ cat_name,
@@ -103,8 +97,8 @@ function getApiFactory($http) {
             })
         }
 
-    
- return ApiFactory;
-    
+
+    return ApiFactory;
+
 }
 

@@ -1,15 +1,17 @@
 <div >
-  <pre>{{ portfolio.tags }}</pre>
+
     <div class="portfolio_tags_bar">
-        <ul>
-            <li ng-repeat="tag in portfolio.tags">{{ tag.name }}</li>
-        </ul>
+        <div class="container">
+            <ul>
+                <li ng-repeat="tag in portfolio.tags"><a href="">{{ tag.name }}</a></li>
+            </ul>
+        </div>
     </div>
-  {{ portfolio.getPostTags }}
+
     <div class="container portfolio">
         <div class="row_masonry grid col-md-12">
           
-            <div class="grid-item col-md-3 col-sm-6" ng-repeat="post in portfolio.posts " ">
+            <div class="grid-item col-md-3 col-sm-6" ng-repeat="post in portfolio.posts ">
                 <div   ng-repeat="media in portfolio.media | filter: post.featured_image" ng-if="post.featured_image == media.id"><img ng-src="{{ media.source_url}}"/></div>
                 <div class="desc">
                     <h2>{{ post.title.rendered }}</h2>

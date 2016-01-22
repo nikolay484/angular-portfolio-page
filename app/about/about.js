@@ -6,7 +6,7 @@ angular.module('myApp.about', [
 
 .controller('AboutCtrl', AboutCtrl);
 function AboutCtrl($scope, $rootScope, $cookies, $log) {
-    $log.warn('aboutCTRL start');
+    $log.debug('aboutCTRL start');
     $rootScope.curPath = 'about';
-    $log.warn('aboutCTRL stop');
+    $log.debug('aboutCTRL stop');
 }

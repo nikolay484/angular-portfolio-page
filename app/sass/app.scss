@@ -8,6 +8,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 h1 {
@@ -246,6 +248,28 @@ section {
 
   }
   &.portfolio {
+    .portfolio_tags_bar {
+      margin-bottom: 30px;
+      background: $rhino;
+      .container {
+        text-align: center;
+        ul {
+          margin: 0;
+          li {
+            display: inline-block;
+            a {
+              display: block;
+              text-decoration: none;
+              padding: 28px;
+              color: $white;
+              &:hover {
+                background: $light-sea;
+              }
+            }
+          }
+        }
+      }
+    }
     .row_masonry {
       -moz-column-gap: 1em;
       -webkit-column-gap:1em;
@@ -330,7 +354,6 @@ footer {
   .social {
     ul {
       margin: 0 0 25px 0;
-      list-style-type: none;
       padding: 0;
       li {
         margin: 0 13px;
